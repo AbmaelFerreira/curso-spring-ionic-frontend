@@ -11,19 +11,48 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
+
   public appPages = [
     {
-      title: 'Inbox',
-      url: '/folder/Inbox',
-      icon: 'mail'
+      
+      title: 'Categorias',
+      url: '/categorias',
+      icon: 'card'
+      /*<ion-icon name="layers-outline"></ion-icon>*/
     },
+    
     {
-      title: 'Outbox',
-      url: '/folder/Outbox',
+        title: 'Botao',
+        url: '/botao',
+        icon: 'radio-button-off'
+      },
+    {
+      
+        title: 'Lista',
+        url: '/lista',
+        icon: 'radio-button-off'
+      },
+      
+    {
+      
+        title: 'Alerta',
+        url: '/alertas',
+        icon: 'card'
+      },
+    {
+      title: 'Cadastro NÃO EXISTE A PAGINA',
+      url: '/folder/Cadastro',
+      icon: 'paper-plane'
+    }
+    ,
+    {
+      title: 'PESQUISA Não existe ',
+      url: '/folder/Pesquisa',
       icon: 'paper-plane'
     }
   ];
-  public labels = ['Family'];
+
+  public listagens = ['Familia','Amigos', 'Irmãos'];
 
   constructor(
     private platform: Platform,
