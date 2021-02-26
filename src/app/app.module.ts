@@ -1,3 +1,4 @@
+import { ErrorInterceptor, ErrorInterceptorProvider } from './../ineterceptor/error-interceptor';
 import { CategoriaService } from './../services/domain/categoria.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,12 @@ import { HttpClientModule} from '@angular/common/http';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CategoriaService
+    CategoriaService,
+   {
+     provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+  }
   ],
   bootstrap: [AppComponent]
 })
