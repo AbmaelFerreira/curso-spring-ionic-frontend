@@ -1,3 +1,4 @@
+import { CredenciaisDTO } from './../../../models/credenciais.dto';
 import { NavController, MenuController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -9,10 +10,17 @@ import { CategoriasPage } from '../categorias/categorias.page';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+    creds: CredenciaisDTO = {
+      email:"",
+      senha: ""
+    };
+  
   /*constructor(private activatedRoute: ActivatedRoute) { }*/
   constructor(public nav: NavController, public menu: MenuController) { }
 
   login() {
+    console.log(this.creds);
     this.nav.navigateForward('/categorias');
   }
 
@@ -22,9 +30,6 @@ export class HomePage implements OnInit {
     ionViewDidLeave() {
       this.menu.enable(true);
     }
-
-    
-
    
 
   ngOnInit() {

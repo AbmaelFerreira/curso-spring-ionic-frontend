@@ -15,11 +15,13 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log('Passou pelo Interceptor')
+       
+        
         const headers = new HttpHeaders({
             'Authorization': 'AbmaelFerreira'
         })
         return next.handle(req)
+        
         .pipe(
             catchError(this.handleError)
         );
