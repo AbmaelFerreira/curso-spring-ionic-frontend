@@ -1,4 +1,6 @@
-import { ErrorInterceptor, ErrorInterceptorProvider } from './../ineterceptor/error-interceptor';
+import { StorageService } from './../services/domain/storage.service';
+import { AuthService } from './../services/auth.service';
+import { ErrorInterceptor } from './../ineterceptor/error-interceptor';
 import { CategoriaService } from './../services/domain/categoria.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,11 +28,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     CategoriaService,
-   {
-     provide: HTTP_INTERCEPTORS,
-    useClass: ErrorInterceptor,
-    multi: true
-  }
+    StorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+  AuthService,
   ],
   bootstrap: [AppComponent]
 })

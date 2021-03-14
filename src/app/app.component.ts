@@ -13,6 +13,12 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
 
   public appPages = [
+    
+    {
+      title: 'Primeiro Acesso',
+      url: '/login',
+      icon: 'card'
+    },
     {
       
       title: 'Categorias',
@@ -20,7 +26,6 @@ export class AppComponent implements OnInit {
       icon: 'card'
       /*<ion-icon name="layers-outline"></ion-icon>*/
     },
-    
     {
         title: 'Botao',
         url: '/botao',
